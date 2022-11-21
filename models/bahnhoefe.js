@@ -11,7 +11,14 @@ const stopsSchema = new Schema({
   Breite: { type: String },
   Betreiber_Name: { type: String },
   Status: { type: String },
-});
+},{collection: "Bahnhoefe"});
 
-const stopsschema = mongoose.model("Bahnhoefe", stopsSchema);
-module.exports = { stopsschema };
+const testIt = new Schema(
+  {name: String},
+{ collection: "Test" }
+);
+
+const stopsschema = mongoose.model("DB.Bahnhoefe", stopsSchema);
+const testit = mongoose.model("DB.Test",testIt);
+module.exports =  {testit,stopsschema};
+
