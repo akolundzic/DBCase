@@ -25,7 +25,7 @@ db.once("open", function () {
   console.log("MongoDB database connection established successfully");
 });
 
-app.use("/", indexRouter);
+app.use("/api/v1/distance/", indexRouter);
 // /--- Server listeing -----
 
 let server = app.listen(PORT, function () {

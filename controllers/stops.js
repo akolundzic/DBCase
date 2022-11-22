@@ -2,11 +2,11 @@ const express = require("express");
 const app = express();
 const { testit, stopsschema } = require("../models/bahnhoefe");
 const mongoose = require("mongoose");
-
-const getOneStop = async (req, res) => {
+const errors = {};
+//get two stops
+const getTwoStop = async (req, res) => {
   const { NAME, NAME2 } = req.body;
-  const errors = {};
-  errors["data"] = false;
+
   errors["message"] = "";
   let dataStops = {};
   try {
@@ -40,10 +40,29 @@ const getOneStop = async (req, res) => {
     res.status(400).json({ errors: e.message });
   }
 };
-const testrequest = async (req, res, next) => {
-  res.send("Test Page");
+//get on stops
+const getOneStop = async (req, res, next, id) => {
+
+  const filter = { DS100: id };
+  
+  try {
+    const stop = await stopsschema.find(filter);
+    if (stop) {
+      
+      res.status(200);
+     
+      return stop
+    } else {
+      errors["message"] = "Die Haltestelle gibt es nicht";
+      res.status(400).json({ errors: errors });
+    }
+  } catch (e) {
+    res.status(400).json({ errors: e.message });
+  }
+  next();
 };
+
 module.exports = {
+  getTwoStop: getTwoStop,
   getOneStop: getOneStop,
-  testrequest: testrequest,
 };

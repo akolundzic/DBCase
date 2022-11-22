@@ -1,0 +1,11 @@
+
+DS100 "FF", "Frankfurt(Main)Hbf"
+DS100 "BLS", "Berlin Hbf
+
+//Output should looke like that as a JSON object
+{
+"from": "Frankfurt(Main)Hbf",
+"to": "Berlin Hbf",
+"distance": 423,
+"unit": "km"
+}
