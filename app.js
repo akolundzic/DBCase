@@ -5,19 +5,13 @@ const logger = require("morgan");
 const PORT = process.env.PORT || 8000;
 const mongoose = require("mongoose");
 const indexRouter = require("./routes/database");
-
 require("dotenv").config();
-
 const app = express();
 mongoose.connect(process.env.PW_CONNECT);
 const db = mongoose.connection;
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-
 
 //test connection status
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
