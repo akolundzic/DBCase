@@ -1,4 +1,4 @@
-# DB Case study - distance calculation of two stops
+# Deutsche Bahn Case study - Distance Calculation of Two Stops
 ### frameworks & language
  - Nodes Js / Express
  - Javascript 
