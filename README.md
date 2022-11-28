@@ -44,7 +44,7 @@ Test Model - testIt
 | ----------- | -------------- | ------------------------------------------------------------ | -------------- | ------------ | ------------------------------------------------------------ |
 | GET         | `/api/v1/distance/:id/:id2`     |  [NAME, DS100 Laenge, Breite ]                                                            | 200            | 404          | Get station information for calculation.           |
  ## Mathematical model to calculate the distance
- You can use either the Haversine formula to find distance between two points on a sphere and implement it by yourself [Link](https://www.geeksforgeeks.org/haversine-formula-to-find-distance-between-two-points-on-a-sphere/) or you can use the npm pacakge for that [Link](https://www.npmjs.com/package/haversine) .
+ You can use either the Haversine formula to find distance between two points on a sphere and implement it by yourself [Link](https://www.geeksforgeeks.org/haversine-formula-to-find-distance-between-two-points-on-a-sphere/) or you can use the npm package for that [Link](https://www.npmjs.com/package/haversine) .
               
 ---
 ## Links

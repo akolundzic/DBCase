@@ -13,7 +13,7 @@ router.get("/:id/:id2", async (req, res, next) => {
   try {
     const hal1 = await controller.getOneStop(req, res, next, id);
     const hal2 = await controller.getOneStop(req, res, next, id2);
-
+    console.log(hal2);
     if (hal1 != "" && hal2 != "") {
       const st1 = hal1[0];
       const st2 = hal2[0];
@@ -25,18 +25,16 @@ router.get("/:id/:id2", async (req, res, next) => {
       const a = { latitude: b1, longitude: l1 };
       const b = { latitude: b2, longitude: l2 };
       distance = getDistance(a, b);
-      response ={
-        "from":st1.NAME,
-        "to":st2.NAME,
-        "distance":distance,
-        "unit":"km"
-      }
+      response = {
+        from: st1.NAME,
+        to: st2.NAME,
+        distance: distance,
+        unit: "km",
+      };
       res.status(200).json(response);
-
     } else if (hal1 == "") {
-      error = "Für " + hal1.NAME + " wurde keine Haltestelle gefunden";
+      error = "Für " + id + " wurde keine Haltestelle gefunden";
       res.status(404).json({ error: error });
-
     } else {
       error = "Für " + id2 + " wurde keine Haltestelle gefunden";
       res.status(404).json({ error: error });
